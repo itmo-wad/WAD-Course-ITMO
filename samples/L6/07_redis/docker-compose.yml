@@ -1,0 +1,21 @@
+version: "3.2"
+services:
+  flask-simple:
+    build:
+      dockerfile: Dockerfile1
+      context: .
+    command: python app.py
+    ports:
+      - "80:5000"
+    volumes:
+      - ./src:/usr/src/app/
+      
+  redis:
+    image: redis
+    volumes:
+      - redisdata:/data
+    ports:
+      - "6379:6379"
+      
+volumes:
+  redisdata:

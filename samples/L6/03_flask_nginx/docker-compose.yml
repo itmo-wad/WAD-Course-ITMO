@@ -1,0 +1,16 @@
+version: "3.2"
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+  flask-simple:
+    build:
+      dockerfile: Dockerfile1
+      context: .
+    command: python app.py
+    volumes:
+      - ./src:/usr/src/app/
+

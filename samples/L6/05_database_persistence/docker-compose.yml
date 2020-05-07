@@ -1,0 +1,12 @@
+version: "3.2"
+services:
+   mongodb:
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+      - ./dump:/dump
+    ports:
+      - 27018:27017
+      
+volumes:
+  mongodata:
