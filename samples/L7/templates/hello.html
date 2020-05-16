@@ -1,0 +1,37 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>DEMO website</h1>
+        {% if name != "": %}
+            <p>{{ name }}</p>
+        {% else: %}
+            <p>Note: send your name in ?name= parameter</p>
+        {% endif %}
+    </div>
+    <div class="col-md-12">
+        
+    </div>
+    <div class="col-md-12">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-info" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}

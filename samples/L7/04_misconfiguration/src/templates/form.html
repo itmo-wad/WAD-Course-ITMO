@@ -1,0 +1,37 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Signup for our awesome service</h1>
+        <p>Note: Your data isn't going anywhere.</p>
+    </div>
+    <div class="col-md-12">
+        <h1>Upload new File</h1>
+        <form method="POST" enctype="multipart/form-data" action="/">
+            <input type=file name=file class="form-control">
+            <input type=submit value=Upload class="form-control btn btn-primary">
+        </form>
+    </div>
+    <div class="col-md-12">
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}
